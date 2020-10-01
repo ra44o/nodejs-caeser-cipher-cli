@@ -1,0 +1,20 @@
+{
+  "name": "caesar-cipher-cli-tool",
+  "version": "1.0.0",
+  "description": "Custom CLI tool for encoding and decoding text with Caesar cipher",
+  "main": "cli.js",
+  "scripts": {
+    "start": "node cli.js -s 7 -o \"output.txt\" --action encode -i \"input.txt\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CLI",
+    "caesar",
+    "cipher"
+  ],
+  "author": "Artsiom Rak",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.1.0"
+  }
+}
