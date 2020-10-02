@@ -8,26 +8,31 @@ const { CustomTransform } = require('./transform');
 const transformStream = new CustomTransform(getShift(), getAction());
 
 const data = (inputFilePath, outputFilePath) => {
-  let input;
-  let output;
+  let inputStream;
+  let outputStream;
   if (inputFilePath) {
-    const p = path.join(__dirname, '..', inputFilePath)
-    // console.log(1, p);
-    input = fs.createReadStream(p, { encoding: 'utf8' });
+    const filePath = path.join(__dirname, '..', inputFilePath)
+    inputStream = fs.createReadStream(filePath, { encoding: 'utf8' });
   } else {
-    input = process.stdin;
+    inputStream = process.stdin;
   }
 
   if (outputFilePath) {
-    output = fs.createWriteStream(path.join(__dirname, outputFilePath), { flags: 'a+', encoding: 'utf8' });
+    const filePath = path.join(__dirname, '..', outputFilePath)
+    outputStream = function() { 
+      console.log(`\nThe result of the action will be write into: ${filePath}\n`);
+      return fs.createWriteStream(filePath, { flags: 'a+', encoding: 'utf8' });
+    };
   } else {
-    output = process.stdout;
+    outputStream = function() {
+      return process.stdout;
+    };
   }
 
   pipeline(
-    input,
+    inputStream,
     transformStream,
-    output,
+    outputStream(),
     error => {
       if (error) {
         console.error(`Failed: ${error}`);

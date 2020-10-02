@@ -35,10 +35,11 @@ const start = () => {
       if (values.input) {
         try {
           const filePath = path.join(__dirname, '..', values.input);
-          console.log('\npath:', filePath, '\n');
-          fs.open(filePath, (err) => {
-            console.error(`The file "${filePath}" can not be open.`);
-            process.exit(1);
+          fs.open(filePath, fs.constants.F_OK, (err) => {
+            if (err) {
+              console.error(`The file "${filePath}" can not be open.`);
+              process.exit(1);
+            }
           });
         } catch (error) {
           console.log(error)
@@ -49,9 +50,12 @@ const start = () => {
 
       if (values.output) {
         try {
-          fs.open(path.join(__dirname, values.output), fs.constants.F_OK, (err) => {
-            console.error(`The file "${values.output}" can not be open.`);
-            process.exit(1);
+          const filePath = path.join(__dirname, '..', values.output);
+          fs.open(filePath, fs.constants.F_OK, (err) => {
+            if (err) {
+              console.error(`The file "${values.output}" can not be open.`);
+              process.exit(1);
+            }
           });
         } catch (error) {
           console.error(`The file "${values.output}" is not find.`);
