@@ -21,7 +21,6 @@ const start = () => {
       values.output = options.output;
       values.action = options.action;
 
-      console.log(values)
       if (!options.shift || values.shift < 0) {
         console.error('A shift should be provided, to be a number and not to be negative.');
         process.exit(1);

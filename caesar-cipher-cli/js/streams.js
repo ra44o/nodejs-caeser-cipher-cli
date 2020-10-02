@@ -20,7 +20,7 @@ const data = (inputFilePath, outputFilePath) => {
   if (outputFilePath) {
     const filePath = path.join(__dirname, '..', outputFilePath)
     outputStream = function() { 
-      console.log(`\nThe result of the action will be write into: ${filePath}\n`);
+      console.log(`The result of the action will be written into: ${filePath}\n`);
       return fs.createWriteStream(filePath, { flags: 'a+', encoding: 'utf8' });
     };
   } else {
@@ -38,7 +38,6 @@ const data = (inputFilePath, outputFilePath) => {
         console.error(`Failed: ${error}`);
       } else {
         console.log('Succeed');
-        process.exit(1);
       }
     }
   );
