@@ -42,7 +42,7 @@ const start = () => {
           });
         } catch (error) {
           console.log(error)
-          console.error(`The file "${values.input}" is not find.`);
+          console.error(`The file "${values.input}" not found.`);
           process.exit(1);
         }
       }
@@ -57,7 +57,7 @@ const start = () => {
             }
           });
         } catch (error) {
-          console.error(`The file "${values.output}" is not find.`);
+          console.error(`The file "${values.output}" not found.`);
           process.exit(1);
         }
       }
