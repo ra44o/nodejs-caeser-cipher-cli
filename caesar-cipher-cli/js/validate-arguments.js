@@ -33,7 +33,7 @@ const start = () => {
 
       if (values.input) {
         try {
-          const filePath = path.join(__dirname, '..', values.input);
+          const filePath = path.resolve(__dirname, '..', values.input);
           fs.open(filePath, fs.constants.F_OK, (err) => {
             if (err) {
               console.error(`The file "${filePath}" can not be open.`);
@@ -49,7 +49,7 @@ const start = () => {
 
       if (values.output) {
         try {
-          const filePath = path.join(__dirname, '..', values.output);
+          const filePath = path.resolve(__dirname, '..', values.output);
           fs.open(filePath, fs.constants.F_OK, (err) => {
             if (err) {
               console.error(`The file "${values.output}" can not be open.`);
