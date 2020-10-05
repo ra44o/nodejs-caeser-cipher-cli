@@ -4,7 +4,7 @@
 
 To run the code open any command line and run one of the examples below.
 
-### Here some options: 
+### Here are some options: 
 - `-a` or `--action` should equal to `encode` or `decode`, it is a required option;
 - `-s` or `--shift` should be not negative integer, it is a required option;
 - `-i` or `--input` should be a string, it is a relative or an absolete path to the input file. If the file is not found, the message will be shown. If the option will not be provided, you will be offered to enter some text in a command line.
