@@ -5,8 +5,8 @@
 To run the code open any command line and run one of the examples below.
 
 ### Here are some options: 
-- `-a` or `--action` should equal to `encode` or `decode`, it is a required option;
-- `-s` or `--shift` should be not negative integer, it is a required option;
+- `-a` or `--action` should be equal to `encode` or `decode`, it is a required option;
+- `-s` or `--shift` should be a not negative integer, it is a required option;
 - `-i` or `--input` should be a string, it is a relative or an absolete path to the input file. If the file is not found, the message will be shown. If the option will not be provided, you will be offered to enter some text in a command line.
 - `-o` or `--output` should be a string, it is a relative or an absolete path to the output file. If the file is not found, the message will be shown. If the option will not be provided, the output will be performed to the command line.
 
