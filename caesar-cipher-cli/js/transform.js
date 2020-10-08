@@ -18,6 +18,4 @@ class CustomTransform extends Transform {
   }
 }
 
-module.exports = {
-  CustomTransform,
-}
+module.exports = CustomTransform;
