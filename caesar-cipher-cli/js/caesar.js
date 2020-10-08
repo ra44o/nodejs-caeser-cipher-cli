@@ -67,28 +67,19 @@ function str2ab(str) {
 
 function encodeDecode(data, shift, action, isBuffer = false) {
   isBuffer ? data = String.fromCharCode.apply(null, new Uint8Array(data)) : null;
-  if (action) {
-    if (action === actions.encode) {
-      return caesarEncode(data, shift);
-    } else {
-      return caesarDecode(data, shift);
-    }
+  if (action === actions.encode) {
+    return caesarEncode(data, shift);
   } else {
-    throw 'An \"Act\" parameter should be provided.';
+    return caesarDecode(data, shift);
   }
 }
 
 function encodeDecodeAsync(data, shift, action) {
   const text = String.fromCharCode.apply(null, new Uint8Array(data));
-  if (action) {
-    if (action === actions.encode) {
-      return str2ab(caesarEncode(text, shift));
-    } else {
-      return str2ab(caesarDecode(text, shift));
-    }
+  if (action === actions.encode) {
+    return str2ab(caesarEncode(text, shift));
   } else {
-    console.error('An \"Act\" parameter should be provided.');
-    return;
+    return str2ab(caesarDecode(text, shift));
   }
 }
 
